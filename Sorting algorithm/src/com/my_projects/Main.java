@@ -18,7 +18,7 @@ public class Main {
             }
             words.add(input);
         }
-        // cat ,apple ,something
+        
         for (int j = -1; j < words.size() - 1; j++) {
             for (int i = j + 1; i < words.size() - 1; i++) {
                 if (words.get(i).charAt(0) > words.get(i + 1).charAt(0)) {
