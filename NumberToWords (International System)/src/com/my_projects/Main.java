@@ -17,7 +17,39 @@ public class Main {
             int digit = Character.getNumericValue(number.charAt(i)) - 1;
 
             if (i == number.length() - 1 || i == number.length() - 4 || i == number.length() - 7 && number.charAt(i) != '0') {
+            if (i == number.length() - 1 || i == number.length() - 4 || i == number.length() - 7 && number.charAt(i) != '0') {
+20
                 number_name += single_digit_numbers[digit] + " ";
+21
+            }
+22
+            if ((i == number.length() - 2 || i == number.length() - 5 || i == number.length() - 8) && number.charAt(i) != '0') {
+23
+                if (number.charAt(i) == '1') {
+24
+                    number_name += double_digit_numbers[Character.getNumericValue(number.charAt(i + 1))];
+25
+                    i++; // ignore the next time the loop runs to prevent the single digit number
+26
+                }
+27
+                number_name += multiples_of_ten[digit] + " ";
+28
+            }
+29
+            if ((i == number.length() - 3 || i == number.length() - 6 || i == number.length() - 9) && number.charAt(i) != '0') {
+30
+                number_name += single_digit_numbers[digit] + " hundred ";
+31
+            }
+32
+           if (i == number.length() - 4 && (number.charAt(i) != '0' || number.charAt(i-1) != '0' || number.charAt(i-2) != '0')) {
+33
+                number_name += "thousand ";
+34
+            }
+35
+            number_name += single_digit_numbers[digit] + " ";
             }
             if ((i == number.length() - 2 || i == number.length() - 5 || i == number.length() - 8) && number.charAt(i) != '0') {
                 if (number.charAt(i) == '1') {
@@ -29,7 +61,7 @@ public class Main {
             if ((i == number.length() - 3 || i == number.length() - 6 || i == number.length() - 9) && number.charAt(i) != '0') {
                 number_name += single_digit_numbers[digit] + " hundred ";
             }
-            if (i == number.length() - 4) {
+            if (i == number.length() - 4 && (number.charAt(i) != '0' || number.charAt(i-1) != '0' || number.charAt(i-2) != '0')) {
                 number_name += "thousand ";
             }
         }
